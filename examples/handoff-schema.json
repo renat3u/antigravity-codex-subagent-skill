@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CodexSubagentHandoff",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["DONE", "PARTIAL", "BLOCKED"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "Concise high-level summary of findings or changes"
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Relative paths of created, modified, or deleted files"
+    },
+    "verification": {
+      "type": "string",
+      "description": "Commands/tests executed and pass/fail status"
+    },
+    "risks_or_open_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status",
+    "summary",
+    "changed_files",
+    "verification",
+    "risks_or_open_items"
+  ],
+  "additionalProperties": false
+}
